@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        // 定义数组
+        var aArray1 = new Array(1, 2, 3);
+        console.log(aArray1);
+
+        // 字面量方式创建，相当于直接赋值一个数组，数组的表现形式是一对中括号
+        var aArray2 = [3, 6, 9];
+        console.log(aArray2);
+
+        // 多维数组
+        var aArray3 = [[1, 2, 3], [3, 6, 9]];
+        console.log(aArray3);
+        // 获取数据
+        // alert(aArray3[0][1]);
+
+        // 数组相关操作
+        var aArray4 = [3, 6, 9];
+        // 获取数组长度
+        // alert(aArray4.length);
+        // 根据下标修改数据
+        aArray4[1] = 22
+        console.log(aArray4);
+        // 追加数据
+        aArray4.push('hello')
+        console.log(aArray4);
+        // 删除最后一个元素,这里pop不支持根据下标删除
+        var oValue = aArray4.pop()
+        console.log(oValue);
+        console.log(aArray4);
+        // 插入数据
+        // splice(index, del_num, append_data)表示从下标index开始删除del_num个元素，并添加append_data数据
+        aArray4.splice(1, 1, 'apple');
+        console.log(aArray4);
+
+        // 没有del_num参数即只是在下标index处添加
+        // aArray4.splice(1, 0, 'apple');
+        // console.log(aArray4);
+        
+        // 没有append_data参数即只是删除
+        // aArray4.splice(1, 2);
+        // console.log(aArray4);
+
+
+    </script>
+
+
+
+
+</head>
+<body>
+    
+</body>
+</html>

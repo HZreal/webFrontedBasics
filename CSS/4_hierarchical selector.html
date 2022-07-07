@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 层级选择器要有层级关系 */
+        div div{
+            color: springgreen;
+        }
+
+        /* 层级关系下的类选择器 */
+        div .box{
+            color:tomato;
+        }
+
+        /* 多层级下的选择
+        div div p{
+            color: yellow;
+        } */
+
+        /* 层级选择器不一定是父子关系，子孙关系也可以 */
+        div p{
+            color: blueviolet;
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+
+    <!-- 不会被选择 -->
+    <div>不会被选择的容器标签</div>
+    
+    
+    <div>
+        <!-- 会被层级选择器选择 -->
+        <div>应用层级选择器的容器标签</div>
+
+        <div class="box">哈哈哈哈哈</div>
+
+        <div>
+            <p>多层级下的选择</p>
+        </div>
+
+    </div>
+
+    
+</body>
+</html>

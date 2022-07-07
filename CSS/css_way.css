@@ -1,0 +1,86 @@
+/* 标签选择器 */
+h1{
+    color: rgb(136, 182, 182);
+}
+
+
+
+
+/*  类选择器  */
+.myp{
+    color: salmon;
+}
+
+.mybg{
+    background-color: silver;
+}
+
+
+
+
+
+/* 层级选择器要有层级关系 */
+div div{
+    color: springgreen;
+}
+
+/* 层级关系下的类选择器 */
+div .box{
+    color:tomato;
+}
+
+/* 多层级下的选择
+div div p{
+    color: yellow;
+} */
+
+/* 层级选择器不一定是父子关系，子孙关系也可以 */
+div p{
+    color: blueviolet;
+}
+
+
+
+
+/* id选择器 */
+#myid{
+    color: chartreuse;
+}
+
+
+
+
+/* 组选择器：把多个类选择器中相同属性放到组选择器 */
+.box1, .box2, .box3{
+    width: 100px;
+    height: 100px;
+}
+/* css里出现同样的选择器，后面不会覆盖前面，而是在前面的基础上进行追加 */
+
+.box1{
+    background:chartreuse;
+}
+
+.box2{
+    background: cyan;
+}
+
+.box3{
+    background: darkgrey;
+}
+
+
+
+
+div{
+    width: 100px;
+    height: 110px;
+    background: darkgrey;
+}
+
+/* 伪类选择器：给其他选择器添加特护效果，即在选择器后加冒号再加伪类名 */
+div:hover{
+    width: 200px;
+    height: 220px;
+    background:red ;
+}

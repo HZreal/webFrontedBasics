@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="./jQuery-1.12.4.mini.js"></script>
+    <script>
+        $(function(){
+
+            var $divs = $('div');
+            // 获取有指定选择器的父标签(注意：是父标签而不是符合条件的子标签！！！)
+            // $divs.has('p');     //表示选择有p标签的div
+
+            // 设置含class=pname的p标签的父标签div的属性而不是设置含class=pname的p标签！！！即将此div背景设置成红色
+            $divs.has('.pname').css({'background': 'red'});
+
+            // 根据下标索引选择指定标签
+            $divs.eq(1).css({'background': 'blue'});
+
+        });
+
+        // 选择集过滤就是在选择标签的集合里面过滤自己需要的标签
+    </script>
+
+
+
+</head>
+<body>
+    
+    <div>
+        <p>哈哈</p>
+        <p class="pname">哈哈</p>
+    </div>
+
+    <div>
+        <input type="button" value="按钮">
+    </div>
+
+
+</body>
+</html>

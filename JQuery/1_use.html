@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 导入jquery对应的js文件 -->
+    <!-- 在线包 -->
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script> -->
+    <!-- 离线包 -->
+    <script src="./jQuery-1.12.4.mini.js"></script>
+    
+    <!-- 使用jQuery代码需要重新开一个<script>标签 -->
+    <script>
+        // 原生js写法
+        // window.onload = function(){
+        //     // 当页面的标签和标签使用的数据都加载完成，onload事件才会触发
+        //     var oDiv = document.getElementById('div1');
+        //     alert('原生获取的div:' + oDiv);
+        // }
+
+
+        // $就是jQuery的象征
+        // $本质是一个函数，名字就叫$
+        // ready：等待页面标签加载完成以后就执行ready事件，不会等待资源数据加载完成
+        // $(document).ready(function(){
+        //     // 获取标签和css样式匹配标签的规则一样
+        //     // 以后使用jQuery，变量名都要以$符号开头
+        //     var $div = $('#div1');
+        //     alert('jQuery获取的div:' + $div);
+        // });
+
+
+        简写方式
+        $(function(){
+            var $div = $('#div1');
+            alert('jQuery获取的div:' + $div);
+        });
+
+        // $(document).ready(function(){
+        //     alert("hello");
+        // });
+
+    </script>
+
+
+
+
+</head>
+<body>
+    
+    <!-- <div id="div1">哈哈哈哈</div> -->
+    <!-- <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F16%2F09%2F09%2F2157d2ba871765e.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1619763588&t=907addaf72246e43f45ac6aee944d996" alt=""> -->
+</body>
+</html>
+
+
+
+
+
+
+

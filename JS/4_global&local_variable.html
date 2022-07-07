@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        // 局部变量
+        function fnShow(){
+            var iNum = 1;
+            alert(iNum);
+        }
+        // fnShow();
+        
+        //alert(iNum);     //函数外无法访问
+
+        //全局变量
+        var iNum1 = 1;
+        function fnModify(){
+            alert(iNum1);
+            iNum1 = 3;
+            iNum1++;
+            alert(iNum1);
+        }
+        fnModify();
+        // js中可以数字类型和字符串类型直接相加，数字自动转成字符串
+        alert('函数外访问全局变量：' + iNum1);
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

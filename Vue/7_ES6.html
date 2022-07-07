@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es6</title>
+
+    <script src="../JQuery/jQuery-1.12.4.mini.js"></script>
+
+    <script>
+        var num = 1;
+        // ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效
+        let a = 10;    
+        //let 用于局部中定义，如：
+        for(let i=0; i<10; i++){
+            console.log(i)
+        }
+
+        // 新增 const声明一个只读的常量。一旦声明，常量的值就不能改变
+        const aaa = 55;
+
+        // ES5定义对象
+        var Person = {
+            name: 'huang',
+            age: '22',
+            func:function(){
+                alert('hello')
+            }
+        }
+
+        // ES6新定义方式
+        var name = 'huang';
+        var age = '22';
+        var People = {
+            name,
+            age,
+            show:function(){
+                alert('hello')
+            }
+        }
+
+
+        // window对象:
+        // 所有浏览器都支持 window 对象。它代表浏览器的窗口。
+        // 所有全局 JavaScript 对象，函数和变量自动成为 window 对象的成员。
+        // 全局变量是 window 对象的属性。全局函数是 window 对象的方法。甚至（HTML DOM 的）document 对象也是 window 对象属性。平常经常用到的是window的子对象。
+
+
+        
+        // 在以前定义函数可以如下，如果层级比较深的时候, this的指向就变成了window, 这时候就可以通过箭头函数解决这个指向的问题
+        var abc = function say(){
+            alert('hello');
+        }
+
+
+        // 函数定义新方式：去掉function 和 say 并添加箭头 =>
+        // 箭头函数：定义函数新的方式， 改变this的指向
+        // this总是指向调用该函数的对象，函数没有所属对象时，就指向全局对象（window）
+        // 作为构造函数使用时，this 指的是构造函数生成的实例对象
+        // this出现在全局函数中,永远指向window
+        var say = () => {
+            alert('我是无参数无返回值函数');
+        }
+        // 调用：say();
+
+        var myinterest = (food) => {
+            alert('我喜欢吃'+ food);
+        }
+        // 调用：myinterest('苹果');
+
+        var show = (num1, num2) => {
+            return num1 + num2;
+        }
+        // 调用：result = show(5, 4);
+
+
+        // this指向
+        var Person = {
+            name: 'huang',
+            age: 22,
+            say:function(){
+                alert('my name is ' + name);
+                alert('my name is ' + this.name);
+            },
+        }
+
+        $(function(){
+            Person.say();
+        });
+        
+
+    </script>
+
+
+
+
+</head>
+<body>
+     
+</body>
+</html>

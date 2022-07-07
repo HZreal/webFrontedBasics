@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue learn</title>
+
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- 生产环境版本，优化了尺寸和速度 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    
+
+</head>
+
+<!--     vue的双向数据绑定实现与用户交互和局部刷新     -->
+<body>
+    
+    <div id="app">
+        <a href="#">{{ message }}</a>
+        <span>{{ hello }}</span>
+        <hr>
+        <a v-bind:href="url">点我有惊喜</a>
+        <br>
+        <span v-bind:title='showmessage'>鼠标放在这</span>
+        <span :title='showmessage'>鼠标放在这</span>                //简写
+
+
+    </div>
+
+</body>
+
+    <script type="text/javascript">
+        var vm = new Vue({
+            // 接管标签
+            el: '#app',                            // id选择器
+
+            // 绑定数据
+            data: {
+                message: 'Hello vue',
+                hello: 'welcome',
+                url: 'http://www.baidu.com',
+                showmessage: '当前时间是' + new Date().toLocaleString(),            //创建当前时间的实例对象，转成str
+            },
+        });
+
+    </script>
+
+
+</html>

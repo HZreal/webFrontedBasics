@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="./jQuery-1.12.4.mini.js"></script>
+
+    <!-- 事件冒泡：就是事件默认会一级一级往上(父标签)传递 -->
+    <!-- 事件代理就是把事件加到父级上，通过判断事件来源，执行相应的子元素的操作 -->
+    <script>
+        $(function(){
+            var $btn = $('#btn1');
+            var $div = $('div');
+
+            // 点击按钮触发事件时，默认会触发父级div的事件
+            $btn.click(function(){
+                alert('我是按钮');
+                // 取消事件冒泡，即不让事件向父级传递
+                // return false
+            });
+
+            // $div.click(function(){
+            //     alert('我是div');
+            // });
+
+
+
+            // 通过事件代理，让父控件代理子控件的事件，然后执行子控件的相关操作
+            var $ul = $('div ul');
+            
+            $ul.delegate('li', 'click', function(){
+                $(this).css({'color': 'red'});
+            });
+
+            // 代理不同子控件的事件,多个选择器直接用逗号隔开
+            var $box1 = $('#box1');
+            $box1.delegate('#p2, #btn2', 'click', function(){
+                alert('ok');
+            });
+
+        });
+    </script>
+
+
+</head>
+<body>
+
+    <div>
+        <p id="p1">哈哈哈</p>
+        <input type="button" value="按钮" id="btn1">
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+            <li>555</li>
+        </ul>
+    </div>
+    
+    <div id="box1">
+        <p id="p2">哈哈哈</p>
+        <input type="button" value="按钮" id="btn2">
+    </div>
+
+</body>
+</html>

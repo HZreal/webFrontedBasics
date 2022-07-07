@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 自定义JavaScript对象  ES5下的定义
+
+        // 1.使用顶级类Object创建
+        var oPerson = new Object();
+        // 添加属性和方法
+        oPerson.name = '李四';
+        oPerson.age = 22;
+        oPerson.show = function(){
+            alert('我是一个添加的函数');
+        };
+        // 获取属性、调用方法
+        alert(oPerson.name);
+        oPerson.show();
+
+        // 2.字面量创建
+        var oStudent = {
+            name: 'wangwu',
+            age: 22,
+            show: function(){
+                alert('我是一个好学生');
+            }
+        }
+        alert(oStudent.name + oStudent.age);
+        oStudent.show();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

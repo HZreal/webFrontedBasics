@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>model form input bind data</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <!-- 在输入框输入的数据都可以被获取：vm.$data.user_name获取(console可查看) -->
+                <!-- name="username"是后端服务器获取数据的标识id -->
+                <td><input type="text" name="username" v-model="user_name"></td>
+            </tr>
+            <tr><td>密码：</td> <td><input type="password" name="password1" v-model="password1"></td></tr>
+            <tr><td>确认密码：</td> <td><input type="password" name="password2" v-model="password2"></td></tr>
+            
+
+            <!-- 单选框 -->
+            <tr>
+                <td>性别：</td>
+                <td>
+                    <!-- 获取用户选择的选项：vm.$data.gender(console可查看) -->
+                    男<input type="radio" name="gender" value="boy" v-model="gender">
+                    女<input type="radio" name="gender" value="girl" v-model="gender">
+                </td>
+            </tr>
+
+
+            <!-- 复选框/多选框   此时是interest一个列表!!! -->
+            <tr>
+                <td>爱好：</td>
+                <td>
+                    <input type="checkbox" name="interest" value="足球" v-model="interest">足球
+                    <input type="checkbox" name="interest" value="basketball" v-model="interest">篮球
+                    <input type="checkbox" name="pingpong" value="乒乓球" v-model="interest">乒乓球
+                </td>
+            </tr>
+
+
+            <!-- 下拉框 -->
+            <tr>
+                <td>所在城市：</td>
+                <td>
+                    <select name="city" v-model="city">
+                        <option value="Beijing">北京</option>
+                        <option value="上海">上海</option>
+                        <option value="Wuhan">武汉</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- 多行文本 -->
+            <tr>
+                <td>个人简介：</td>
+                <td>
+                    <textarea name="desc" v-model="desc"></textarea>
+                </td>
+            </tr>
+
+        </table>
+
+        <button v-on:click="register">注册</button>
+
+    </div>
+</body>
+
+<script type="text/javascript">
+    var vm = new Vue({
+        el:'#app',
+        data: {
+            user_name: '',
+            password1: '',
+            password2: '',
+            gender: '',
+            // interest: '',                   //此时复选框只能全选或者全不选
+            interest: [],
+            city: '',
+            desc: '',
+           
+        },
+        methods: {
+            register:function(){
+                alert('用户：'+this.user_name+'注册成功！'+' 性别：'+this.gender+' 爱好：'+this.interest+' 所在城市：'+this.city+' 个人简介：'+this.desc);
+            },
+        },
+    });
+
+
+
+</script>
+
+</html>

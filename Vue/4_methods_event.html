@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>methods event</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <button v-on:click="login">按钮</button>
+
+        <br>
+        <!-- v-on:click 可简写成 @click -->
+        <a href="#" @click="register(username)">注册</a>       
+         
+        <br>
+        <p>当前number值为：{{number}}</p>
+        <button @click="add(count)">点我加5</button>
+
+    </div>    
+
+</body>
+
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data:{
+                username: '乔布斯',                //作为实参传给register
+                count: 5,                           //作为实参传给add
+                number: 10,                         //被函数直接使用
+            },
+
+            // 事件方法
+            methods: {
+                login:function(){
+                    alert('点击按钮弹窗...');
+                },
+
+                register:function(username){
+                    alert(username + '正在注册...');
+                },
+
+                add:function(num){
+                    this.number += num;
+                    alert(this.number)
+                },
+
+            },
+
+        });
+
+    </script>
+
+</html>

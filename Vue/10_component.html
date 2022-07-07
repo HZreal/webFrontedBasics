@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE组件</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- 这里为全局组件的调用 -->
+        <global_zujian></global_zujian>    
+
+
+
+    </div>
+
+
+    <script>
+
+
+        // 定义另一个局部组件,当被另一个局部组件调用时，需在其前定义！
+        var local_zujian_2={
+            template: '<div>###局部组件2###</div>',
+        };
+
+
+        // 局部组件定义(按照定义变量的形式)
+        var local_zujian = {           // 组件名
+            template: '<div>!!!!!!!!局部组件定义!!!!!!!!! {{ age }} {{ pro }} <button @click="upload_to_father">上传按钮</button>  <local_zujian_2></local_zujian_2> </div>',
+
+            // 局部组件中定义绑定数据
+            data: function(){
+                return {age: 22}
+            },
+
+            // 注册其他局部组件
+            components:{
+                local_zujian_2,       // 注册局部组件2，注意局部组件2必须在此组件之前定义！
+            },
+
+            // 接收父组件的变量值(父组件给子组件传值)
+            props: [
+                'pro',          // 接收父组件的变量名,如下即接收父组件的name
+            ],
+            
+            // 而子组件给父组件传值，就是通过自定义上传的方法(事件)实现，      或者也可以通过prop,但是是以父传子传函数类型的prop，子接收到函数后调用函数实现获取父的数据
+            methods: {
+                // 定义给父组件变量值上传的方法
+                upload_to_father: function(){
+                    // 调用emit方法上传，第一个参数为事件名，第二个参数为上传的数据
+                    this.$emit('event_name', 'uploaded data...')
+                },
+
+            },
+        };
+        
+        
+
+        // 全局组件定义
+        Vue.component(
+            'global_zujian',            // 组件名
+            {
+                template: '<div>#####全局组件定义###### <local_zujian v-bind:pro="name" v-on:event_name="recvData"></local_zujian> {{ name }}  <local_zujian_2></local_zujian_2>  </div>',       // 局部组件在全局组件中加载
+                // v-bind:pro="name" 通过v-bind指定子组件中pro接受父组件中的name
+
+
+                // 注册局部组件
+                components: {
+                    local_zujian,                       // 在全局组件中注册局部组件
+                    local_zujian_2,
+                },
+
+                // 全局组件中定义绑定数据
+                data: function(){
+                    return {name: 'huangzhen'}
+                },
+
+                
+                methods: {
+                    // 无法调用Vue对象中的add方法，需要自定义
+                    add:function(){
+                        alert('add');
+                    },
+
+                    // 接收子组件上传数据的方法
+                    recvData:function(data){        // 参数data接受子组件传递的值
+                        console.log(data);
+                    },
+                },
+
+            }
+        );
+        
+        
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'huang',
+
+            },
+            methods: {
+                add:function(){
+                    alert('add');
+                },
+                
+            },
+        });
+
+    </script>
+
+</body>
+</html>

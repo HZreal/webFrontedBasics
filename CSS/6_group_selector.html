@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <style>
+        /* 组选择器：把多个类选择器中相同属性放到组选择器 */
+        .box1, .box2, .box3{
+            width: 100px;
+            height: 100px;
+        }
+        /* css里出现同样的选择器，后面不会覆盖前面，而是在前面的基础上进行追加 */
+
+        .box1{
+            background:chartreuse;
+        }
+
+        .box2{
+            background: cyan;
+        }
+
+        .box3{
+            background: darkgrey;
+        }
+    </style>
+
+
+
+</head>
+<body>
+    
+    <!-- div.box1*3 表示创建三个div并且指定class属性的名字是box1 -->
+    <div class="box1">应用组选择器下的容器</div>
+    <div class="box2">应用组选择器下的容器</div>
+    <div class="box3">应用组选择器下的容器</div>
+
+
+
+
+
+</body>
+</html>

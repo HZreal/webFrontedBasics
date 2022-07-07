@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="./jQuery-1.12.4.mini.js"></script>
+    <script>
+        $(function(){
+            // 获取标签
+            var $p = $('p');
+            var $text = $('#txt1');
+
+            // 获取样式属性，比如获取字体大小
+            var $px = $p.css('font-size');
+            alert($px);
+
+            // 设置样式属性
+            $p.css({'font-size': '30px', 'background': 'green'});
+
+            // 使用css方法可以给标签设置样式属性，那么设置标签的其它属性则使用prop方法
+            // 用prop()获取属性值
+            var $name = $text.prop('name');
+            alert($name);
+            var $type = $text.prop('type');
+            alert($type);
+
+            // 用prop()设置属性,参数与css设置样式相同，都是传入js对象(类似于字典)
+            // $text.prop({'value': '张三', 'class': 'tname'});
+
+
+            // val方法：仅限于value属性
+            // 使用val方法获取value属性
+            // alert($text.prop('value'));
+            alert($text.val());
+
+            // 使用val方法设置value属性
+            $text.val('王五');
+
+        });
+    </script>
+
+
+</head>
+<body>
+    <p>段落标签哦</p>
+    <input type="text" name="username" id="txt1" value="李四"> 
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <input type="text" v-model="newitem"><button v-on:click="additem">添加</button>
+        <ul>
+            <li v-for="(item,index) in items">{{ item }}
+                <a href="javascript:;" v-on:click="go_up(index)">↑</a>
+                <a href="javascript:;" @click="deleteitem(index)">删除</a>
+                <a href="javascript:;" @click="go_down(index)">↓</a>
+            </li>
+        </ul>
+    </div>
+
+    
+</body>
+
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            items: ['Vue', 'Django', 'Flask'],
+            newitem: '',
+
+        },
+        methods: {
+            additem:function(){
+                this.items.push(this.newitem);
+                // this.items.splice(this.items.length, 0, this.newitem);           // splice(index,del_num,append_data)
+                this.newitem = '';
+            },
+
+            deleteitem(index){
+                this.items.splice(index, 1)
+            },
+
+            // 上移
+            go_up:function(index){
+                if(index > 0){                                 //第一个元素无法上移
+                    var current_item = this.items[index];
+                    this.items.splice(index, 1);
+                    this.items.splice(index-1, 0, current_item)
+                }
+                    
+            },
+
+            // 下移
+            go_down:function(index){
+                if(index < this.items.length - 1){             //最后一个元素无法下移
+                    var current_item = this.items[index];
+                    this.items.splice(index,1);
+                    this.items.splice(index+1, 0, current_item)
+                }
+            },
+        },
+    });
+
+</script>
+
+</html>

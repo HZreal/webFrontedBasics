@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        .btnstyle{
+            background: blue;
+            font-size: 30px;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+            var oBtn = document.getElementById('btn1');
+            // 获取标签的属性
+            alert(oBtn.type);
+            alert(oBtn.value);
+
+            // 设置标签属性
+            oBtn.name = 'username';
+
+            // 设置样式属性
+            // oBtn.style.background = 'blue';
+            // oBtn.style.fontSize = '30px'
+            oBtn.className = 'btnstyle'     //相当于在标签内部加一个class属性，其值为'btnstyle'
+                        
+        }
+    </script>
+
+
+
+</head>
+<body>
+    
+    <input type="button" value="按钮" id="btn1">
+
+</body>
+</html>

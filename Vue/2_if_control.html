@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue if</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+</head>
+
+<body>
+
+    <div id="app">
+        <a href="#" v-if="isLogin">欢迎回来</a>
+        
+        <br>
+        <a href="#" v-if="level === 1">青铜</a>
+        <a href="#" v-else-if="level === 2">黄金</a>
+        <a href="#" v-else=>王者</a>                                 <!--  v-else必须紧挨着v-if -->
+        
+        <br>
+        <span v-if="seen">v-if</span><br>
+        <span v-show="seen">v-show</span>
+        <!-- v-show用法和v-if大致一样，但是它不支持v-else,区别是，v-show制作元素样式的显示和隐藏，元素一直是存在的 -->
+    
+    </div>
+
+
+</body>
+
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello',
+            isLogin: true,
+            // isLogin: false,                                         // 不显示
+            level: 1,                                                  //显示青铜
+            // level: 2,                                               //显示王者
+            // seen: true,                                  //v-if和v-show均显示                                  
+            seen: false,                                    //v-if和v-show均不显示，区别是v-show将样式里的display设置为none，标签元素还存在。而v-if的标签元素直接就不存在了
+            
+
+        },
+    });
+</script>
+
+
+</html>

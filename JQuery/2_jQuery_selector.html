@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="./jQuery-1.12.4.mini.js"></script>
+
+    <script>
+        // $()里的参数是一个函数，页面dom元素加载完成后就去执行此匿名函数
+        $(function(){
+
+            // 标签选择器
+            // 获取标签对象
+            // var $p = $('p');
+            // alert($p.length);
+            // $p.css({'color': 'red', 'font-size': '20px'});
+
+            //类选择器
+            // var $div = $('.div1');
+            // alert($div.length);
+
+            // id选择器
+            // var $box = $('#box1');
+            // alert($box.length);
+
+            // 层级选择器
+            // var $h1 = $('div h1');
+            // alert($h1.length);
+
+            // 属性选择器：先选择对应标签，再根据属性值过滤筛选
+            var $input = $('input[type=text]');
+            alert($input.length);
+        
+        });
+        // 结论：jquery选择器就是快速选择标签元素，获取标签的，选择规则和css样式一样
+       
+        
+
+    </script>
+
+
+
+</head>
+<body>
+
+    <p>标签选择器</p>
+    <p>标签选择器</p>
+
+    <div class="div1">类选择器</div>
+
+    <div id="box1">id选择器</div>
+
+    <div>
+        <h1>层级选择器</h1>
+    </div>
+
+    <label for="">请输入：</label>
+    <input type="text">
+    <input type="button" value="提交">
+
+</body>
+</html>

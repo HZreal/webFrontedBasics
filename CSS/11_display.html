@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background:blue;
+            /* 把该标签隐藏，并且不占用位置 */
+            display: none;
+            /* 若要标签再次显示，可设置成block，或删除这个none的样式属性 */
+        }
+
+        .box2 {
+            /* width: 100px; */
+            /* height: 100px; */
+            background: red;
+            /* 把div可以和其他元素在一行显示，但不能设置宽高 */
+            /* 若要既设置div宽高又要一行显示，可以通过浮动完成 */
+            display: inline;
+            float: left;
+        }
+
+        .aaa {
+            /* 设置标签自己独占一行，不和其他标签在一行显示 */
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <!-- 隐藏了 -->
+    <div class="box1">哈哈</div>
+
+    <p>嘻嘻嘻</p>
+
+    <div class="box2">嘻嘻嘻</div>
+
+    <a href="http://www.baidu.com">百度</a>
+    <a href="http://www.baidu.com" class="aaa">百度</a>
+    
+
+</body>
+</html>

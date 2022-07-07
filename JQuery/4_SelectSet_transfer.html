@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bbb{
+            text-decoration: line-through;
+        }
+
+    </style>
+
+    <script src="./jQuery-1.12.4.mini.js"></script>
+    <script>
+        // 选择集转移就是以选择的标签为参照，然后获取转移后的标签
+        $(function(){
+            var $div = $('#box1');
+    
+            // prev()：选择当前的上一个同级标签
+            $div.prev().css({'color': 'red', 'font-size': '25px'});    //css参数是一个js对象，和python字典很类似
+            
+            // prevAll()：选择上面所有的同级标签
+            $div.prevAll().css({'text-indent':'50px'});
+
+            // next()：选择下一个标签
+            $div.next().css({'color': 'green'});
+
+            // nextAll()：选择下面所有的同级标签
+            $div.nextAll().css({'text-indent': '40px'});
+
+            // siblings()：选择同级的其他所有标签
+            $div.siblings().css({'text-decoration':'underline'});
+
+            // parent()：选择父标签
+            $div.parent().css({'background': 'gray'});
+
+            // children()：获取所有子标签
+            $div.children().css({'color': 'blue'});
+
+            // find()：查找指定的子标签
+            $div.find('.sp1').css({'font-size': '35px', 'color':'pink'});
+
+        });
+
+    </script>
+
+
+
+</head>
+<body>
+
+    <div>
+        <h3>三级标题</h3>
+        <p>haha p标签</p>
+        <div id="box1">
+            <span>爱</span>使人平静，而<span class="sp1">平静使人思考</span>
+        </div>
+        <h3>三级标题</h3>
+        <p>haha p标签</p>
+    </div>
+    
+
+</body>
+</html>

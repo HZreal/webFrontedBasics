@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- 定时器：根据指定时间间隔延时调用指定函数 -->
+    <script>
+
+
+        // 根据时间间隔只调用一次函数的定时器
+        // function fnShow(name, age){
+        //     alert('OK' + name + age);
+        //     alert(tid)
+        //     // 销毁定时器
+        //     clearTimeout(tid)
+        // }
+
+        // 第一个参数是执行的函数，第二个是执行延时时间(毫秒)，后面的是给该函数传参
+        // 返回值表示创建定时器的id,即是创建的第几个定时器
+        // var tid = setTimeout(fnShow, 2000, '李四', 23)
+
+
+
+
+
+        // 根据时间间隔重复调用函数的定时器
+        function fnShowInfo(name, age){
+            alert('OK' + name + age);
+
+        }
+
+        function fnStop(){
+            // alert(tid);
+            // 销毁定时器
+            clearInterval(tid);
+        }
+       
+        var tid = setInterval(fnShowInfo, 3000, '李四', 24);
+
+
+
+
+        function click_enevt(){
+            num = 60;
+            var tid = setInterval(() => {
+                if(num == 1){
+                    // 倒计时到1  停止回调函数的执行
+                    console.log(1);
+                    clearInterval(tid);
+                    console.log(2);
+                    this.sms_code_tip = '获取短信验证码';
+                }
+                else {
+                    console.log(3);
+                    num -= 1;
+                    this.sms_code_tip = num + '秒';
+                    console.log(4);
+            
+                }
+            }, 1000);
+        }
+        
+
+
+
+    </script>
+
+
+
+
+</head> 
+<body>
+    
+    <input type="button" value="停止" onclick="fnStop()">
+
+    <a @click="click_event">{{ sms_code_tip }}</a>
+    
+</body>
+</html>

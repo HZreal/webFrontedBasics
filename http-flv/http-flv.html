@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flv.js/1.3.2/flv.js"></script>
+</head>
+
+<body>
+  <div>
+
+    <div style="margin-left: 100px; margin-top: 200px; margin-bottom: 50px">
+      <video id="videoElement" muted autoplay controls width="800px" height="600px"></video>
+      <button @click="startPlay('video')">播放</button>
+      <button @click="pausePlay('video')">暂停</button>
+      <button @click="destroyPlay('video')">停止</button>
+    </div>
+
+    <br>
+
+    <div style="margin-left: 100px; margin-top: 200px; margin-bottom: 50px">
+      <video id="audioElement" muted autoplay controls width="800px" height="600px"></video>
+      <button @click="startPlay('audio')">播放</button>
+      <button @click="pausePlay('audio')">暂停</button>
+      <button @click="destroyPlay('audio')">停止</button>
+    </div>
+
+  </div>
+</body>
+
+<script>
+  var flvPlayer;
+  var flvVideoPlayer;
+  var flvAudioPlayer;
+
+  function startPlay(playerType){
+    if (playerType == 'video'){
+      flvVideoPlayer.play();
+    }else {
+      flvAudioPlayer.play();
+    }
+  }
+
+  function pausePlay(){
+    if (playerType == 'video'){
+      flvVideoPlayer.pause();
+    }else {
+      flvAudioPlayer.pause();
+    }
+  }
+
+  function destroyPlay(){
+    if (playerType == 'video'){
+      flvVideoPlayer.pause();
+      flvVideoPlayer.unload();
+      flvVideoPlayer.detachMediaElement();
+      flvVideoPlayer.destroy();
+      flvVideoPlayer = null;
+    }else {
+      flvAudioPlayer.pause();
+      flvAudioPlayer.unload();
+      flvAudioPlayer.detachMediaElement();
+      flvAudioPlayer.destroy();
+      flvAudioPlayer = null;
+    }
+  }
+
+  function createVideoPlayer() {
+    createPlay("video")
+  }
+
+  function createAudioPlayer() {
+    createPlay("audio")
+  }
+
+  function createPlay(playerType){
+    var ElementID, hasAudio, hasVideo, playerUrl;
+    if (playerType == 'video'){
+      ElementID = 'videoElement'
+      hasAudio = false
+      hasVideo = true
+      playerUrl = 'http://192.168.6.36:8081/live?port=1935&app=rtmplive&stream=my_video'
+    } else if( playerType == 'audio') {
+      ElementID = 'audioElement'
+      hasAudio = true
+      hasVideo = false
+      playerUrl = 'http://192.168.6.36:8081/live?port=1935&app=rtmplive&stream=my_audio'
+    }else {
+      return
+    }
+    console.log('===================', playerType, ElementID, hasAudio, hasVideo)
+
+    if (flvjs.isSupported()) {
+      console.log('create Play ----------')
+      flvPlayer = null
+      let Element = document.getElementById(ElementID);
+      flvPlayer = flvjs.createPlayer({
+        type: 'flv',        // flv or mp4
+        isLive: true,
+        hasAudio: hasAudio,
+        hasVideo: hasVideo,
+        // url: 'http://1011.hlsplay.aodianyun.com/demo/game.flv'
+        // url: 'http://fms.cntv.lxdns.com/live/flv/channel96.flv'
+        // url: 'http://192.168.6.222:8080/live?port=1935&app=rtmplive&stream=my_video'
+        // url: 'http://192.168.6.29:8081/live?port=1935&app=rtmplive&stream=my_video'
+        // url: 'http://192.168.6.29:8081/live?port=1935&app=rtmplive&stream=my_audio'
+        // url: 'rtmp://sendtc1a.douyu.com/live'
+        url: playerUrl,
+      }, {
+        enableWorker: false,       //不启用分离线程
+        enableStashBuffer: false, //关闭IO隐藏缓冲区
+        isLive: true,
+        lazyLoad: false,
+      });
+      flvPlayer.attachMediaElement(Element);
+      flvPlayer.load();
+      flvPlayer.play();
+    }
+
+    if (playerType == 'video') {
+      flvVideoPlayer = flvPlayer
+      flvPlayer = null
+    }else {
+      flvAudioPlayer = flvPlayer
+      flvPlayer = null
+    }
+
+  }
+
+  createVideoPlayer();
+  createAudioPlayer();
+
+</script>
+</html>

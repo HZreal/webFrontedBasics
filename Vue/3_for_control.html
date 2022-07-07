@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue for</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="app">
+        <ul>
+            <!-- 解包,实参前面是value,后面是索引index -->
+            <li v-for="(lesson, index) in lessons">{{index+1}}---{{lesson}}</li>
+        </ul>
+        <br>
+        <ul>
+            <!-- 此处对象(字典)解包，实参前面是value，后面是key -->
+            <li v-for="(value, key) in object">{{key}}---{{value}}</li>    
+        </ul>
+        <br>
+        <ul>
+            <li v-for="item in items">{{item.title}}---{{item.author}}---{{item.publishedAt}}</li>
+        </ul>
+
+    </div>
+
+
+</body>
+
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                lessons: ['python', 'mysql', 'html', 'js', 'scrapy'],
+                object: {
+                    title: 'How to learn vue',
+                    auther: 'Jane',
+                    pub_date: '2018-5-25',
+                }, 
+
+                items: [
+                {
+                    title: 'Vue',
+                    author: 'Jane Doe',
+                    publishedAt: '2016-04-10'
+                 },
+                {
+                    title: 'python',
+                    author: 'Ricky',
+                    publishedAt: '2019-04-10'
+                },
+                {
+                    title: 'itcast',
+                    author: 'itcast',
+                    publishedAt: '2006-05-08'
+                }
+                ],
+
+            },
+        });
+
+    </script>
+    
+
+</html>

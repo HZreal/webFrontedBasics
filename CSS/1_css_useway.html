@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css样式三种使用方式</title>
+    <!-- 内嵌式 -->
+    <style>
+        /* 样式表可以由很多选择器组成，选择器就是给指定标签添加样式 */
+        a {
+            color: green;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+        }
+    </style>
+
+    <!-- 外链式 -->
+    <link rel="stylesheet" href="./css_way.css">
+
+</head>
+
+<body>
+    <!-- 行内式 -->
+    <p style="color: blue;">样式为蓝色的段落</p>
+
+
+    <!-- 上面已经定义a标签的样式，此处即应用 -->
+    <a href="http://www.baidu.com">百度</a>
+    <a href="http://www.sina.com.cn">新浪</a>
+    
+    <div>
+        应用内嵌式的容器标签
+    </div>
+
+    <!-- 头部已导入css样式文件，此处即应用 -->
+    <h1>应用css文件的一级标题</h1>
+
+
+
+</body>
+</html>
